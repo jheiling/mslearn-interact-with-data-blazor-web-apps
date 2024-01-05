@@ -15,14 +15,12 @@ public class OrderState
             Size = Pizza.DefaultSize,
             Toppings = new List<PizzaTopping>(),
         };
-
         ShowingConfigureDialog = true;
     }
 
     public void CancelConfigurePizzaDialog()
     {
         ConfiguringPizza = null;
-
         ShowingConfigureDialog = false;
     }
 
@@ -30,7 +28,8 @@ public class OrderState
     {
         Order.Pizzas.Add(ConfiguringPizza);
         ConfiguringPizza = null;
-
         ShowingConfigureDialog = false;
     }
+
+    public void RemoveConfiguredPizza(Pizza pizza) => Order.Pizzas.Remove(pizza);
 }
